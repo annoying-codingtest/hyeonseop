@@ -10,8 +10,16 @@ public class NQueen_9663 {
 		n = Integer.parseInt(br.readLine());
 		boolean[][] v = new boolean[n][n];
 		dfs(0, v);
+		System.out.println(cnt);
 	}
 	
+	private static boolean[][] copyArray(boolean[][] arr) {
+		boolean[][] copiedArr = new boolean[n][n];
+		for(int i=0; i<n; i++)
+			copiedArr[i] = arr[i].clone();
+		return copiedArr;
+	}
+
 	private static void dfs(int row, boolean[][] visit) {
 		if(n == row) {
 			cnt++;
@@ -19,9 +27,9 @@ public class NQueen_9663 {
 		}
 		for(int col=0; col<n; col++) {
 			if(visit[row][col]) continue;	// 방문체크
-			CantPutQueen(row, col, visit);
-			
-			
+			boolean[][] copiedVisit = copyArray(visit);
+			CantPutQueen(row, col, copiedVisit);
+			dfs(row + 1, copiedVisit);
 		}
 	}
 	
@@ -32,5 +40,7 @@ public class NQueen_9663 {
 					visit[row + i][col + j*i] = true;
 		}
 	}
+	
+	
 	
 }
