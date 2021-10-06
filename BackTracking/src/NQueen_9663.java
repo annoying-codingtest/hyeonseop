@@ -11,8 +11,8 @@ public class NQueen_9663 {
 		n = Integer.parseInt(br.readLine());
 		queens = new int[n];
 		for(int col=0; col<n; col++) {		// (열탐색) 체스판에서 몇 번째 열에 퀸을 놓을지
-			queens[0] = col;				// 퀸의 시작 좌표(0,0) ~ (0,n) 
-			dfs(1);							// (dfs로 행탐색) 체스판에서 두번째 행부터 탐색 시작
+			queens[0] = col;		// 퀸의 시작 좌표(0,0) ~ (0,n) 
+			dfs(1);				// (dfs로 행탐색) 체스판에서 두번째 행부터 탐색 시작
 		}
 		System.out.println(cnt);
 	}
