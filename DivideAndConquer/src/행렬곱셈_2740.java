@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 public class 행렬곱셈_2740 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
@@ -15,7 +16,9 @@ public class 행렬곱셈_2740 {
 			for(int j=0; j<m; j++)
 				mA[i][j] = Integer.parseInt(st.nextToken());
 		}
-		int k = Integer.parseInt(br.readLine().substring(2));
+		st = new StringTokenizer(br.readLine());
+		st.nextToken();
+		int k = Integer.parseInt(st.nextToken());
 		int[][] mB = new int[m][k];
 		for(int i=0; i<m; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -23,7 +26,19 @@ public class 행렬곱셈_2740 {
 				mB[i][j] = Integer.parseInt(st.nextToken());
 		}
 		
-		
-		
+		int[][] ans = new int[n][k];
+		for(int d=0; d<m; d++) {
+			for(int i=0; i<n; i++) {
+				for(int j=0; j<k; j++) {
+					ans[i][j] += mA[i][d] * mB[d][j];
+				}
+			}
+		}
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<k; j++) 
+				sb.append(ans[i][j] + " ");
+			sb.append("\n");
+		}
+		System.out.println(sb);
 	}
 }
