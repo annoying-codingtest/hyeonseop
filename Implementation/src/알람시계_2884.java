@@ -9,11 +9,13 @@ public class 알람시계_2884 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int h = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
-		if(m < 45) {
-			if(h == 0)	h = 23;
-			else		h--;
+		if (m < 45) {
+			if (h == 0)
+				h = 23;
+			else
+				h--;
 			m += 15;
-		}else
+		} else
 			m -= 45;
 		System.out.printf("%d %d", h, m);
 	}
